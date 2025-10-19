@@ -1,0 +1,620 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default theme variables - these will be overridden by theme classes */
+:root {
+  --theme-primary: 199 98% 48%; /* tadashi-blue */
+  --theme-secondary: 190 80% 40%; /* tadashi-darkBlue */
+  --theme-accent: 210 40% 98%; /* white */
+  --theme-background: 210 40% 98%; /* light background */
+}
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 199 98% 48%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 199 98% 48%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 199 98% 48%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 199 98% 48%;
+  }
+
+  /* Default theme */
+  .theme-default {
+    --theme-primary: 199 98% 48%; /* tadashi-blue */
+    --theme-secondary: 190 80% 40%; /* tadashi-darkBlue */
+    --theme-accent: 210 40% 98%; /* white */
+    --theme-background: 210 40% 98%; /* light background */
+  }
+
+  /* Calm theme - soothing blues and greens */
+  .theme-calm {
+    --theme-primary: 180 70% 40%; /* teal */
+    --theme-secondary: 160 60% 35%; /* darker teal */
+    --theme-accent: 190 90% 95%; /* light cyan */
+    --theme-background: 180 30% 97%; /* very light teal */
+  }
+
+  /* Energetic theme - vibrant oranges and reds */
+  .theme-energetic {
+    --theme-primary: 20 90% 55%; /* orange */
+    --theme-secondary: 10 80% 45%; /* red-orange */
+    --theme-accent: 40 100% 90%; /* light yellow */
+    --theme-background: 30 100% 95%; /* very light orange */
+  }
+
+  /* Focus theme - clean purples and blues */
+  .theme-focus {
+    --theme-primary: 260 70% 50%; /* purple */
+    --theme-secondary: 250 60% 40%; /* darker purple */
+    --theme-accent: 270 90% 95%; /* light lavender */
+    --theme-background: 260 30% 97%; /* very light purple */
+  }
+
+  /* Relax theme - soft pinks and peaches */
+  .theme-relax {
+    --theme-primary: 10 70% 70%; /* peach */
+    --theme-secondary: 0 60% 60%; /* soft red */
+    --theme-accent: 20 90% 95%; /* light peach */
+    --theme-background: 15 30% 97%; /* very light peach */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Professional UI Components */
+.tadashi-card {
+  @apply bg-white rounded-3xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl border border-gray-100;
+}
+
+.tadashi-input {
+  @apply rounded-full border-tadashi-darkGray bg-tadashi-gray px-4 py-2 focus:outline-none focus:ring-2 focus:ring-tadashi-blue transition-all duration-200 border border-gray-200;
+}
+
+.tadashi-button {
+  @apply rounded-full bg-tadashi-blue text-white font-medium px-6 py-3 shadow-md hover:bg-tadashi-darkBlue transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-tadashi-darkBlue focus:ring-offset-2 relative overflow-hidden font-semibold tracking-wide;
+}
+
+.tadashi-button-secondary {
+  @apply rounded-full bg-tadashi-gray text-gray-700 font-medium px-6 py-3 shadow-md hover:bg-tadashi-darkGray transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-tadashi-darkGray focus:ring-offset-2 font-semibold tracking-wide;
+}
+
+.tadashi-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.tadashi-section {
+  @apply py-12 md:py-24;
+}
+
+.tadashi-heading {
+  @apply text-3xl md:text-4xl font-bold text-gray-800 mb-6 leading-tight;
+}
+
+.tadashi-subheading {
+  @apply text-xl md:text-2xl font-semibold text-gray-700 mb-4 leading-snug;
+}
+
+.tadashi-text {
+  @apply text-gray-600 leading-relaxed;
+}
+
+.tadashi-hero {
+  @apply text-4xl md:text-6xl font-bold text-gray-800 dark:text-gray-100 mb-6 leading-tight;
+}
+
+.tadashi-tagline {
+  @apply text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl leading-relaxed;
+}
+
+/* Dark mode enhancements */
+.dark .tadashi-card {
+  @apply bg-gray-800 shadow-lg p-6 transition-all duration-300 hover:shadow-xl border-gray-700;
+}
+
+.dark .tadashi-input {
+  @apply border-gray-700 bg-gray-800 focus:ring-tadashi-blue text-white;
+}
+
+.dark .tadashi-button {
+  @apply bg-tadashi-darkBlue hover:bg-tadashi-blue;
+}
+
+.dark .tadashi-button-secondary {
+  @apply bg-gray-700 text-gray-200 hover:bg-gray-600;
+}
+
+.dark .tadashi-text {
+  @apply text-gray-300;
+}
+
+.dark .tadashi-heading {
+  @apply text-gray-100;
+}
+
+.dark .tadashi-subheading {
+  @apply text-gray-200;
+}
+
+.dark .tadashi-hero {
+  @apply text-gray-100;
+}
+
+.dark .tadashi-tagline {
+  @apply text-gray-300;
+}
+
+/* Theme-specific styles */
+.theme-default .tadashi-button {
+  background-color: hsl(var(--theme-primary));
+}
+
+.theme-default .tadashi-button:hover {
+  background-color: hsl(var(--theme-secondary));
+}
+
+.theme-default .tadashi-button:focus {
+  box-shadow: 0 0 0 2px hsl(var(--theme-secondary));
+}
+
+.theme-calm .tadashi-button {
+  background-color: hsl(var(--theme-primary));
+}
+
+.theme-calm .tadashi-button:hover {
+  background-color: hsl(var(--theme-secondary));
+}
+
+.theme-calm .tadashi-button:focus {
+  box-shadow: 0 0 0 2px hsl(var(--theme-secondary));
+}
+
+.theme-energetic .tadashi-button {
+  background-color: hsl(var(--theme-primary));
+}
+
+.theme-energetic .tadashi-button:hover {
+  background-color: hsl(var(--theme-secondary));
+}
+
+.theme-energetic .tadashi-button:focus {
+  box-shadow: 0 0 0 2px hsl(var(--theme-secondary));
+}
+
+.theme-focus .tadashi-button {
+  background-color: hsl(var(--theme-primary));
+}
+
+.theme-focus .tadashi-button:hover {
+  background-color: hsl(var(--theme-secondary));
+}
+
+.theme-focus .tadashi-button:focus {
+  box-shadow: 0 0 0 2px hsl(var(--theme-secondary));
+}
+
+.theme-relax .tadashi-button {
+  background-color: hsl(var(--theme-primary));
+}
+
+.theme-relax .tadashi-button:hover {
+  background-color: hsl(var(--theme-secondary));
+}
+
+.theme-relax .tadashi-button:focus {
+  box-shadow: 0 0 0 2px hsl(var(--theme-secondary));
+}
+
+/* Add theme-specific styles for other components */
+.theme-default .tadashi-heading,
+.theme-default .tadashi-subheading,
+.theme-default .tadashi-hero {
+  color: hsl(var(--theme-primary));
+}
+
+.theme-calm .tadashi-heading,
+.theme-calm .tadashi-subheading,
+.theme-calm .tadashi-hero {
+  color: hsl(var(--theme-primary));
+}
+
+.theme-energetic .tadashi-heading,
+.theme-energetic .tadashi-subheading,
+.theme-energetic .tadashi-hero {
+  color: hsl(var(--theme-primary));
+}
+
+.theme-focus .tadashi-heading,
+.theme-focus .tadashi-subheading,
+.theme-focus .tadashi-hero {
+  color: hsl(var(--theme-primary));
+}
+
+.theme-relax .tadashi-heading,
+.theme-relax .tadashi-subheading,
+.theme-relax .tadashi-hero {
+  color: hsl(var(--theme-primary));
+}
+
+/* Animation classes */
+.animate-slideUp-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-slideUp-delay-400 {
+  animation-delay: 0.4s;
+}
+
+/* Animation delay classes for bouncing dots */
+.animate-bounce-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-bounce-delay-200 {
+  animation-delay: 0.2s;
+}
+
+/* Custom animations for interactive elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.8);
+  }
+}
+
+@keyframes cursor-ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-cursor-ripple {
+  animation: cursor-ripple 1s ease-out infinite;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Enhanced button hover effects */
+.tadashi-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.tadashi-button:hover::before {
+  left: 100%;
+}
+
+/* Interactive cursor effects */
+.interactive-cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(74, 144, 226, 0.3);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.interactive-cursor::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(74, 144, 226, 0.1);
+  animation: cursor-ripple 1.5s infinite;
+}
+
+/* Professional form styling */
+.tadashi-form {
+  @apply space-y-6;
+}
+
+.tadashi-form-group {
+  @apply space-y-2;
+}
+
+.tadashi-form-label {
+  @apply block text-sm font-medium text-gray-700 dark:text-gray-300;
+}
+
+.tadashi-form-input {
+  @apply w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-tadashi-blue focus:border-transparent transition-all duration-200;
+}
+
+.tadashi-form-textarea {
+  @apply w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-tadashi-blue focus:border-transparent transition-all duration-200 min-h-[120px];
+}
+
+/* Professional card styling */
+.tadashi-feature-card {
+  @apply bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl border border-gray-100 dark:border-gray-700;
+}
+
+.tadashi-feature-icon {
+  @apply rounded-full bg-tadashi-blue/10 dark:bg-tadashi-blue/20 p-3 w-12 h-12 flex items-center justify-center mb-4;
+}
+
+.tadashi-feature-title {
+  @apply text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2;
+}
+
+.tadashi-feature-description {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+/* Professional pricing card styling */
+.tadashi-pricing-card {
+  @apply bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl border border-gray-100 dark:border-gray-700 relative overflow-hidden;
+}
+
+.tadashi-pricing-popular {
+  @apply border-2 border-tadashi-blue shadow-xl scale-105;
+}
+
+.tadashi-pricing-badge {
+  @apply absolute top-0 right-0 bg-tadashi-blue text-white px-4 py-1 text-sm font-bold rounded-bl-lg;
+}
+
+.tadashi-pricing-title {
+  @apply text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2;
+}
+
+.tadashi-pricing-price {
+  @apply text-3xl font-bold text-gray-800 dark:text-gray-100;
+}
+
+.tadashi-pricing-description {
+  @apply text-gray-600 dark:text-gray-400 mt-2 mb-6;
+}
+
+.tadashi-pricing-feature {
+  @apply flex items-start mb-3;
+}
+
+.tadashi-pricing-feature-icon {
+  @apply h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0;
+}
+
+.tadashi-pricing-feature-text {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+/* Professional navigation styling */
+.tadashi-navbar {
+  @apply fixed w-full z-50 transition-all duration-300 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm;
+}
+
+.tadashi-navbar-scrolled {
+  @apply bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg;
+}
+
+.tadashi-navbar-link {
+  @apply px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-tadashi-darkBlue dark:hover:text-tadashi-blue hover:bg-tadashi-lightBlue/50 dark:hover:bg-gray-700/50 transition-all duration-200 flex items-center;
+}
+
+.tadashi-navbar-mobile-link {
+  @apply block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-tadashi-darkBlue dark:hover:text-tadashi-blue hover:bg-tadashi-lightBlue dark:hover:bg-gray-700 transition-colors duration-200;
+}
+
+/* Circular menu button */
+.tadashi-dial-button {
+  @apply rounded-full bg-tadashi-blue text-white hover:bg-tadashi-darkBlue transition-all duration-200 shadow-lg;
+}
+
+.tadashi-dial-button-open {
+  @apply bg-tadashi-darkBlue transform rotate-90;
+}
+
+/* Dial menu items */
+.tadashi-dial-item {
+  @apply flex flex-col items-center justify-center p-3 rounded-xl bg-gray-100 dark:bg-gray-700 hover:bg-tadashi-lightBlue dark:hover:bg-gray-600 transition-all duration-200;
+}
+
+.tadashi-dial-item-icon {
+  @apply h-5 w-5 text-tadashi-blue dark:text-tadashi-blue mb-1;
+}
+
+.tadashi-dial-item-text {
+  @apply text-xs font-medium text-center text-gray-800 dark:text-gray-200 mt-1;
+}
+
+/* Category headers in dial menu */
+.tadashi-dial-category-header {
+  @apply text-sm font-semibold text-gray-500 dark:text-gray-400 mb-3 uppercase tracking-wider;
+}
+
+/* Desktop dial button */
+.tadashi-desktop-dial-button {
+  @apply rounded-full bg-tadashi-blue text-white hover:bg-tadashi-darkBlue transition-all duration-200 shadow-lg w-10 h-10 flex items-center justify-center;
+}
+
+/* Professional footer styling */
+.tadashi-footer {
+  @apply bg-gray-50 dark:bg-gray-800 py-12;
+}
+
+.tadashi-footer-heading {
+  @apply text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4;
+}
+
+.tadashi-footer-link {
+  @apply text-gray-600 dark:text-gray-400 hover:text-tadashi-darkBlue dark:hover:text-tadashi-blue transition-colors duration-200;
+}
+
+.tadashi-footer-text {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+/* Professional chat interface styling */
+.tadashi-chat-container {
+  @apply bg-white dark:bg-gray-900 rounded-3xl shadow-xl overflow-hidden;
+}
+
+.tadashi-chat-messages {
+  @apply h-[600px] overflow-y-auto p-4 space-y-4 bg-tadashi-lightBlue dark:bg-gray-800 relative;
+}
+
+.tadashi-chat-input-form {
+  @apply p-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 relative;
+}
+
+.tadashi-chat-user-message {
+  @apply max-w-[80%] rounded-2xl p-3 bg-tadashi-blue text-white dark:bg-tadashi-darkBlue ml-auto;
+}
+
+.tadashi-chat-assistant-message {
+  @apply max-w-[80%] rounded-2xl p-3 bg-white dark:bg-gray-700 shadow-md mr-auto;
+}
+
+/* Professional loading animations */
+.tadashi-loading-dots {
+  @apply flex space-x-1;
+}
+
+.tadashi-loading-dot {
+  @apply w-2 h-2 bg-tadashi-blue rounded-full animate-bounce;
+}
+
+.tadashi-loading-dot-1 {
+  animation-delay: 0.1s;
+}
+
+.tadashi-loading-dot-2 {
+  animation-delay: 0.2s;
+}
+
+.tadashi-loading-dot-3 {
+  animation-delay: 0.3s;
+}
+
+/* Professional premium badge */
+.tadashi-premium-badge {
+  @apply bg-gradient-to-r from-tadashi-blue to-tadashi-darkBlue text-white text-xs px-2 py-1 rounded-full font-semibold;
+}
+
+/* Professional theme selector */
+.tadashi-theme-selector {
+  @apply flex items-center gap-2 p-2 rounded-lg cursor-pointer hover:bg-tadashi-gray dark:hover:bg-gray-700 transition-colors duration-200;
+}
+
+.tadashi-theme-color {
+  @apply w-4 h-4 rounded-full;
+}
+
+.tadashi-theme-active {
+  @apply bg-tadashi-blue/20;
+}
+
+/* Enhanced navbar for better visual hierarchy */
+.tadashi-navbar-enhanced {
+  @apply bg-gradient-to-r from-white/90 to-tadashi-lightBlue/30 dark:from-gray-900/90 dark:to-gray-800/30;
+}
+
+.tadashi-navbar-brand {
+  @apply text-2xl font-bold bg-gradient-to-r from-tadashi-blue to-tadashi-darkBlue bg-clip-text text-transparent;
+}
+
+/* Mobile menu improvements */
+.tadashi-mobile-menu-overlay {
+  @apply fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4;
+}
+
+.tadashi-mobile-menu-content {
+  @apply relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl max-w-md w-full max-h-[80vh] overflow-y-auto;
+}
