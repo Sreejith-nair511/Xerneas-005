@@ -131,24 +131,6 @@ export default function Home() {
           </motion.div>
           
           {/* India-specific features */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
-          >
-            <Link href="/chatbot">
-              <Button className="tadashi-button w-full sm:w-auto text-lg px-8 py-4">
-                Start Chatting
-              </Button>
-            </Link>
-            <Link href="/tts-stt">
-              <Button className="tadashi-button-secondary w-full sm:w-auto text-lg px-8 py-4">
-                Try Voice Features
-              </Button>
-            </Link>
-          </motion.div>
-          
           <motion.div 
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
