@@ -31,8 +31,6 @@ const nextConfig = {
   },
   // Add experimental features for better Vercel compatibility
   experimental: {
-    // Enable server actions
-    serverActions: true,
     // Optimize package imports
     optimizePackageImports: [
       'lucide-react',

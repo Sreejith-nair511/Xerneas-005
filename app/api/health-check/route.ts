@@ -1,5 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server"
 
+export const dynamic = 'force-dynamic' // Ensure this route is always dynamic
+
 export async function GET(req: NextRequest) {
   try {
     // Check if required environment variables are present
@@ -7,8 +9,10 @@ export async function GET(req: NextRequest) {
     const hasEmailHost = !!process.env.EMAIL_HOST
     const hasEmailUser = !!process.env.EMAIL_USER
     
-    // Get the base URL
-    const baseUrl = req.nextUrl.origin
+    // Get the base URL from headers or use a placeholder
+    const host = req.headers.get('host') || 'localhost:3000'
+    const protocol = host.includes('localhost') ? 'http' : 'https'
+    const baseUrl = `${protocol}://${host}`
     
     return NextResponse.json({ 
       status: "healthy",
